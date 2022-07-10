@@ -9,6 +9,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       auth: false,
       permission: ["admin", "user"],
+      inMenu: true,
       menu: { title: "首页", icon: "Menu" },
     },
     children: [

@@ -12,9 +12,15 @@ export const useMenusStore = defineStore("menu", {
     };
   },
   actions: {
-    async reloadRouter() {
-      router.getRoutes().filter((route) => route.meta.inMenu);
-      this.menus = [];
+    async reloadMenus() {
+      let menus = router
+        .getRoutes()
+        .filter((route) => route.meta.inMenu)
+        .map((route) => {
+          let menu = { ...route.meta.menu, route: route.name };
+          return menu;
+        });
+      this.menus = menus;
     },
   },
 });

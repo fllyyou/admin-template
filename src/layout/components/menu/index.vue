@@ -1,4 +1,12 @@
-<script></script>
+<script lang="ts" setup>
+import { useMenusStore } from "/@/store/menu";
+
+let store = useMenusStore();
+
+let handleOpen = () => {};
+
+let handleClose = () => {};
+</script>
 
 <template>
   <div class="admin-menu">
@@ -16,17 +24,11 @@
           @open="handleOpen"
           @close="handleClose"
         >
-          <el-sub-menu index="1">
+          <el-sub-menu v-for="item of store.menus" index="1">
             <template #title>
-              <el-icon><location /></el-icon>
-              <span>Navigator One</span>
+              <el-icon v-if="item.icon"><component :is="item.icon" /></el-icon>
+              <span>{{ item.title }}</span>
             </template>
-            <el-menu-item index="1-1">item one</el-menu-item>
-            <el-menu-item index="1-2">item two</el-menu-item>
-            <el-sub-menu index="1-4">
-              <template #title><span>item four</span></template>
-              <el-menu-item index="1-4-1">item one</el-menu-item>
-            </el-sub-menu>
           </el-sub-menu>
         </el-menu>
       </div>

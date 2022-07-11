@@ -1,13 +1,16 @@
+import { fa } from "element-plus/es/locale";
 import { defineStore } from "pinia";
 
 interface IUserStore {
   token?: string;
+  initial: boolean;
 }
 
 export const useUserStore = defineStore("user", {
   state: (): IUserStore => {
     return {
       token: undefined,
+      initial: false,
     };
   },
   getters: {
@@ -17,7 +20,10 @@ export const useUserStore = defineStore("user", {
   },
   actions: {
     async login(userName: string, pwd: string) {
-      this.token = "";
+      this.token = "aaa";
+    },
+    async initialUser() {
+      this.initial = true;
     },
   },
 });

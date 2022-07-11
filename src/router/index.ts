@@ -1,7 +1,7 @@
-import { App } from 'vue';
-import { createRouter, createWebHistory } from 'vue-router';
-import guard from './guard';
-import routes from './routes';
+import { App } from "vue";
+import { createRouter, createWebHistory } from "vue-router";
+import guard from "./guard";
+import routes from "./routes";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,4 +14,8 @@ function setupRouter(app: App) {
   return router;
 }
 
-export { router, setupRouter };
+function autoReload(permissions?: string[]) {
+  
+}
+
+export { router, setupRouter, autoReload };

@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { loadFull } from "tsparticles";
 import { Engine } from "tsparticles-engine";
+import { useRouter } from "vue-router";
+import { useUserStore } from "/@/store/user";
 let particles = {
   background: {
     color: {
@@ -80,8 +82,15 @@ let particles = {
   detectRetina: true,
 };
 
+let router = useRouter();
+
 const particlesInit = async (engine: Engine) => {
   await loadFull(engine);
+};
+
+let loginAction = function () {
+  useUserStore().login("111", "2222");
+  router.replace({ path: "/" });
 };
 </script>
 
@@ -94,6 +103,7 @@ const particlesInit = async (engine: Engine) => {
     />
     <div
       class="w-[450px] h-[550px] bg-slate-600 z-10 rounded-2xl drop-shadow-lg backdrop-blur-sm backdrop-opacity-50 bg-opacity-60"
+      @click="loginAction"
     ></div>
   </div>
 </template>

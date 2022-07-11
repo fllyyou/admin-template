@@ -2,9 +2,7 @@
 import { ref } from "vue";
 import { useUserStore } from "../store/user";
 defineProps<{ msg: string }>();
-
-useUserStore;
-
+let store = useUserStore();
 const count = ref(0);
 </script>
 
@@ -33,6 +31,7 @@ const count = ref(0);
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
   </p>
+  <h1>{{ store.token }}</h1>
 </template>
 
 <style scoped>

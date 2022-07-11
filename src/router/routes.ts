@@ -7,7 +7,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import("/@/layout/index.vue"),
     redirect: { name: "DashBoard" },
     meta: {
-      auth: false,
+      auth: true,
       permission: ["admin", "user"],
       inMenu: true,
       menu: { title: "首页", icon: "Menu" },

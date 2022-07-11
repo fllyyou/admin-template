@@ -15,4 +15,5 @@ interface IMenu {
   route?: string | symbol;
   path?: string;
   childrens?: IMenu[];
+  index?: string; //索引值 唯一值
 }

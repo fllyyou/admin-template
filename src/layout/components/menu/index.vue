@@ -1,7 +1,11 @@
 <script lang="ts" setup>
 import { useMenusStore } from "/@/store/menu";
+import MenuItem from "./MenuItem.vue";
+import { useRouter } from "vue-router";
 
 let store = useMenusStore();
+
+let currentIndex = useRouter().currentRoute.value.meta.menu.index;
 
 let handleOpen = () => {};
 
@@ -19,17 +23,16 @@ let handleClose = () => {};
           active-text-color="#ffd04b"
           background-color="raba(0, 0, 255, 1)"
           text-color="#fff"
-          default-active="2"
+          :default-active="currentIndex"
           :collapse="false"
           @open="handleOpen"
           @close="handleClose"
         >
-          <el-sub-menu v-for="item of store.menus" index="1">
-            <template #title>
-              <el-icon v-if="item.icon"><component :is="item.icon" /></el-icon>
-              <span>{{ item.title }}</span>
-            </template>
-          </el-sub-menu>
+          <MenuItem
+            v-for="item of store.menus"
+            :menu="item"
+            :index="item.index"
+          />
         </el-menu>
       </div>
     </div>

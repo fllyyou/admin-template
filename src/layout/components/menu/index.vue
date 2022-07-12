@@ -7,7 +7,9 @@ let store = useMenusStore();
 
 let currentIndex = useRouter().currentRoute.value.meta.menu.index;
 
-let handleOpen = () => {};
+let handleOpen = (key: string, keyPath: string) => {
+  console.log(key, keyPath);
+};
 
 let handleClose = () => {};
 </script>

@@ -19,7 +19,6 @@ const routes: RouteRecordRaw[] = [
         component: () => import("/@/components/HelloWorld.vue"),
         meta: {
           auth: true,
-          inMenu: true,
           menu: { title: "主要", index: "1-1" },
         },
       },
@@ -29,8 +28,31 @@ const routes: RouteRecordRaw[] = [
         component: () => import("/@/components/HelloWorld.vue"),
         meta: {
           auth: true,
-          inMenu: true,
           menu: { title: "次要", index: "1-2" },
+        },
+      },
+    ],
+  },
+  {
+    path: "/next",
+    name: "HomNext",
+    component: () => import("/@/layout/index.vue"),
+    redirect: { name: "DashBoardNext" },
+    meta: {
+      auth: true,
+      permission: ["admin", "user"],
+      inMenu: true,
+      hasNode: false,
+      menu: { title: "次级", icon: "Menu", index: "2" },
+    },
+    children: [
+      {
+        path: "DashBoardNext",
+        name: "DashBoardNext",
+        component: () => import("/@/components/HelloWorld.vue"),
+        meta: {
+          auth: true,
+          menu: { title: "next主要", index: "2-1" },
         },
       },
     ],

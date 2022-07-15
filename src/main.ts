@@ -19,15 +19,20 @@ import { setupRouter } from "/@/router";
 
 const app = createApp(App);
 
-// 使用element plus 组件
-app.use(ElementPlus);
-Object.entries(ElementPlusIcons).forEach(([key, component]) => {
-  app.component(key, component);
-});
-// 使用粒子效果
-app.use(VueParticles);
-// 使用数据管理
-app.use(createPinia());
-// 使用路由管理
-setupRouter(app);
-app.mount("#app");
+async function initialApp() {
+  // 使用element plus 组件
+  app.use(ElementPlus);
+  Object.entries(ElementPlusIcons).forEach(([key, component]) => {
+    app.component(key, component);
+  });
+  // 使用粒子效果
+  app.use(VueParticles);
+  // 使用数据管理
+  app.use(createPinia());
+  // 使用路由管理
+  await setupRouter(app);
+
+  app.mount("#app");
+}
+
+initialApp();

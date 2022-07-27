@@ -40,6 +40,8 @@ class Guard {
         await this.userStore.initialUser();
         // 构建菜单
         await useMenusStore().reloadMenus();
+        // 构建目录导航
+        await useMenusStore().reloadBreadcrumb();
       }
     } catch (error) {
       return { name: "Login" };

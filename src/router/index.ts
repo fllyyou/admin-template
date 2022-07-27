@@ -20,7 +20,6 @@ async function autoReload(permissions?: string[]) {
   let routes = asyncRoutes;
 
   routes.forEach((item) => router.addRoute(item));
-  console.log(router.getRoutes());
 }
 
 export { router, setupRouter, autoReload };

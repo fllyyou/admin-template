@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
+import { Icon } from "@iconify/vue";
 
 //设置属性
 interface IMenuProps {
@@ -23,7 +24,10 @@ let itemClick = (menu?: IMenu) => {
 <template>
   <el-sub-menu v-if="menu && menu.childrens?.length" :index="index">
     <template #title>
-      <el-icon v-if="menu.icon"><component :is="menu.icon" /></el-icon>
+      <el-icon v-if="menu.icon || menu.customIcon"
+        ><component v-if="menu.icon" :is="menu.icon" />
+        <Icon v-if="menu.customIcon" :icon="menu.customIcon" />
+      </el-icon>
       <span>{{ menu.title }}</span>
     </template>
     <MenuItem
@@ -33,7 +37,10 @@ let itemClick = (menu?: IMenu) => {
     ></MenuItem>
   </el-sub-menu>
   <el-menu-item v-else-if="menu" :index="index" @click="itemClick(menu)">
-    <el-icon v-if="menu.icon"><component :is="menu.icon" /></el-icon>
+    <el-icon v-if="menu.icon || menu.customIcon"
+      ><component v-if="menu.icon" :is="menu.icon" />
+      <Icon v-if="menu.customIcon" :icon="menu.customIcon" />
+    </el-icon>
     <span>{{ menu.title }}</span>
   </el-menu-item>
 </template>

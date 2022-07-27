@@ -12,6 +12,7 @@ interface ViteEnv {
 interface IMenu {
   title?: string;
   icon?: string;
+  customIcon?: string;
   route?: string | symbol;
   path?: string;
   childrens?: IMenu[];

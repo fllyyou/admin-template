@@ -10,12 +10,21 @@ const routes: RouteRecordRaw[] = [
       permission: ["admin", "user"],
       inMenu: false,
       menu: { title: "首页", icon: "Menu", index: "1" },
+      breadcrumb: {
+        title: "首页",
+      },
     },
   },
   {
     path: "/login",
     name: "Login",
-    meta: { login: true, menu: {} },
+    meta: {
+      login: true,
+      menu: {},
+      breadcrumb: {
+        title: "登录",
+      },
+    },
     component: () => import("/@/views/login/LoginPage.vue"),
   },
   {

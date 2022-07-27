@@ -9,6 +9,9 @@ export const errorRoutes: RouteRecordRaw[] = [
     meta: {
       auth: true,
       inMenu: false,
+      breadcrumb: {
+        title: "错误页面",
+      },
       menu: {
         title: "错误页面",
         icon: "QuestionFilled",
@@ -20,6 +23,9 @@ export const errorRoutes: RouteRecordRaw[] = [
         name: "404",
         component: () => import("/@/views/errors/404.vue"),
         meta: {
+          breadcrumb: {
+            title: "404",
+          },
           menu: { title: "404" },
         },
       },

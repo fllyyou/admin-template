@@ -10,7 +10,15 @@ export const dashBoardRoutes: RouteRecordRaw[] = [
       auth: true,
       permission: ["admin", "user"],
       inMenu: true,
-      menu: { title: "首页", icon: "Menu", index: "1" },
+      breadcrumb: {
+        title: "首页",
+      },
+      menu: {
+        title: "首页",
+        // icon: "Menu",
+        customIcon: "ri:apps-2-fill",
+        index: "1",
+      },
     },
     children: [
       {
@@ -18,6 +26,9 @@ export const dashBoardRoutes: RouteRecordRaw[] = [
         name: "Panel",
         component: () => import("/@/views/test/test01.vue"),
         meta: {
+          breadcrumb: {
+            title: "主要",
+          },
           auth: true,
           menu: { title: "主要", index: "1-1" },
         },
@@ -28,6 +39,9 @@ export const dashBoardRoutes: RouteRecordRaw[] = [
         component: () => import("/@/views/test/test02.vue"),
         meta: {
           auth: true,
+          breadcrumb: {
+            title: "次要",
+          },
           menu: { title: "次要", index: "1-2" },
         },
       },
